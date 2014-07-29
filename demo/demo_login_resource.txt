@@ -1,0 +1,12 @@
+*** Variables ***
+${LOGIN URL}    http://localhost:7272/html/
+
+*** Keywords ***
+Go to localhost
+	Open Browser    ${LOGIN URL}
+
+Input Data
+	[Arguments]    ${username}    ${passsword}
+	Input Text    username_field    ${username}
+	Input Text    password_field    ${passsword}
+	Click Button    login_button

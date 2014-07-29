@@ -1,0 +1,40 @@
+*** Settings ***
+Library    Selenium2Library
+Test Teardown    Close Browser
+*** Variables ***
+
+
+*** Testcases ***
+User failure
+	Go to localhost
+	Input Data    invalid    mode
+	Check Login Fail
+
+Password failure
+	Go to localhost
+	Input Data    demo    invalid
+	Check Login Fail
+
+Invalid
+	Go to localhost
+	Input Data    invalid    invalid
+	Check Login Fail
+
+Null
+	Go to localhost
+	Input Data    ${EMPTY}    ${EMPTY}
+	Check Login Fail
+
+*** Keywords ***
+Go to localhost
+	Open Browser    http://localhost:7272/html/
+
+Input Data
+	[Arguments]    ${username}    ${passsword}
+	Input Text    username_field    ${username}
+	Input Text    password_field    ${passsword}
+	Click Button    login_button
+	
+Check Login Fail
+	Title Should Be    Error Page
+	Wait Until Page Contains    Login failed
