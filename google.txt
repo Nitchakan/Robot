@@ -1,0 +1,12 @@
+*** Settings ***
+Library    Selenium2Library
+
+*** Variables ***
+
+
+*** Testcases ***
+Search Google
+	Open Browser    http://www.google.co.th
+	Input Text    gbqfq    facebook
+	Click Button    gbqfb
+*** Keywords ***

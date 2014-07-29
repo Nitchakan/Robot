@@ -1,0 +1,15 @@
+*** Settings ***
+Library    Selenium2Library
+
+*** Variables ***
+
+
+*** Testcases ***
+Log in to facebook
+	Open Browser    http://www.facebook.com
+	Input Text    email    pigejung@hotmail.com
+	Input Text    pass    packypack
+	Click Button    u_0_l
+	Wait Until Page Contains    Packy
+	Close Browser
+*** Keywords ***
